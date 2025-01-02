@@ -1,0 +1,17 @@
+<apex:page controller="AccountController">
+    <apex:form >
+        <apex:pageBlock >
+        <apex:selectList size="1" value="{!selected}">
+            <apex:selectOptions value="{!AccList}">
+            </apex:selectOptions>
+        </apex:selectList>
+        <apex:commandButton value="Display" action="{!display}" reRender="dis"/>
+        </apex:pageBlock>
+        <apex:pageBlock id="dis">
+        <apex:pageBlockTable value="{!acc}" var="a">
+            <apex:column value="{!a.Name}" />
+            <apex:column value="{!a.Industry}"/>
+        </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

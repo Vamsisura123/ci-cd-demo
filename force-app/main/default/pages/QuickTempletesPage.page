@@ -1,0 +1,22 @@
+<apex:page controller="QuickTempletesController">
+    <apex:form >
+        <h1>Record Details</h1>
+        <apex:outputLink value="javascript:void(0);" onclick="copyDescription();" style="cursor:pointer;">
+            {!record.Name}
+        </apex:outputLink>
+        <apex:outputText value="{!record.Description__c}" style="display:none;" id="descriptionText"/>
+
+        <script>
+            function copyDescription() {
+                var description = document.getElementById('{!$Component.descriptionText}').innerHTML;
+                var tempElement = document.createElement('textarea');
+                tempElement.value = description;
+                document.body.appendChild(tempElement);
+                tempElement.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempElement);
+                alert('Description copied to clipboard');
+            }
+        </script>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page standardController="Suggestion__c">
+<apex:relatedList list="ProcessSteps"/>
+<apex:relatedList list="AttachedContentDocuments"/>
+</apex:page>
